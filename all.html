@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+function newfunction(){
+$con = new mysqli('localhost','root','','user');
+$sql = "select* from admin";
+$result = $con->query($sql);
+if($result->num-rows>0){
+  while($row=$result->fetch_assoc()){
+    if($row['username']==$_SESSION['name'] && $row['username']==$_SESSION['password']){
+	  echo "you are ".$_SESSION['name'];
+	}
+  }
+}
+
+}
+?>
+</body>
+</html>

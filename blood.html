@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blood details</title>
+<style>
+
+</style>
+</head>
+<body>
+<?php
+$conn = new mysqli("localhost","root","","blood_management_system");
+$sql = "select* from bill";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo $row["Amount"]. " " . $row["Date"]. " " . $row["Blood_no"]." ".$row['Lab_cost'] ."<br>";
+    }
+}
+?>
+</body>
+</html>
